@@ -3,5 +3,4 @@
 Deployed the starter on upstash.com then upgraded the counter in the deno playground with tailwind.<br>
 deno runtime for macOS<br>
 <code>curl -fsSL https://deno.land/install.sh | sh</code><br>
-deploy the upstash starter to get a production URL then build in dev. 
 
