@@ -1,0 +1,7 @@
+// built by Jesse@JesseJesse.com
+
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts"
+  }
+}
