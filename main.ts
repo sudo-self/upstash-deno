@@ -2,10 +2,9 @@ import { serve } from "https://deno.land/std@0.142.0/http/server.ts";
 import { Redis } from "https://deno.land/x/upstash_redis@v1.14.0/mod.ts";
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 
-// Load environment variables from .env file
 config({ export: true });
 
-// Function to generate a random hex color code
+
 function generateRandomHexColor() {
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     return "#" + randomColor;
@@ -26,18 +25,14 @@ serve(async (req: Request) => {
         });
 
         const counter = await redis.incr("deno-counter");
-
-        // Generate a random background color
         const randomColor = generateRandomHexColor();
-
-        // HTML response with inline style for background color
         const htmlResponse = `
             <!DOCTYPE html>
             <html lang="en">
             <head>
-                <meta charset="UTF-8">
+              <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Counter</title>
+                <title>Upstash-Deno</title>
                 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
             </head>
             <body class="bg-gray-100 flex flex-col items-center justify-center h-screen">
@@ -50,7 +45,8 @@ serve(async (req: Request) => {
                         </div>
                     </div>
                 </div>
-            </body>
+                <script async defer src="https://buttons.github.io/buttons.js"></script>  
+                </body>
             </html>
         `;
 
